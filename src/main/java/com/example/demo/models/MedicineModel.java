@@ -20,7 +20,7 @@ public class MedicineModel implements Serializable {
     @Column(nullable = false)
     private String presentation;
     private String status;
-
+    // Constructor
     public MedicineModel() {
     }
     // Getters and Setters Methods
