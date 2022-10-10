@@ -13,11 +13,6 @@ public class RoleController {
     private RoleService roleService; // Inject RoleService
 
     // Métodos
-    // Buscar un rol por nombre
-    // @GetMapping(path = "/{name}")
-    // public RoleModel getByName(@PathVariable("name") String name) {
-    //     return roleService.findRoleByName(name);
-    // }
 
     // Encuentra un rol por id
     @GetMapping(path = "/{id}")
