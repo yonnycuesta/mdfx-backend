@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class SpecialityController {
     
     @Autowired
-    private SpecialityService specialityService;
+    private SpecialityService specialityService; // Inject SpecialityService
     // Get all specialities
     @GetMapping
     public ArrayList<SpecialityModel> getSpecialities() {
