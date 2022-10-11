@@ -1,11 +1,10 @@
 package com.example.demo.models;
-
 import java.io.Serializable;
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "schedules")
-
 public class ScheduleModel implements Serializable{
     
     private static final long serialVersionUID = 1L;
@@ -18,17 +17,19 @@ public class ScheduleModel implements Serializable{
     private String hour;
     @Column(nullable = false)
     private String status;
-
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "doctor_id", nullable = false, referencedColumnName = "id")
     private DoctorModel doctor;
 
-    // Constructor
+    /**
+     * 
+     */
     public ScheduleModel() {
+        
     }
 
-    // Getters and Setters Methods
-
+     // Getters and Setters Methods
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
@@ -56,4 +57,13 @@ public class ScheduleModel implements Serializable{
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public DoctorModel getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(DoctorModel doctor) {
+        this.doctor = doctor;
+    }
+    
 }

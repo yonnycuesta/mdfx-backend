@@ -1,14 +1,15 @@
 package com.example.demo.models;
-
 import java.io.Serializable;
 import java.util.*;
-
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "doctors")
 public class DoctorModel implements Serializable {
 
+    private static final long serialVersionUID = 1L;
 	@Id // Primary Key
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Auto Increment
 	@Column(unique = true, nullable = false) // Unique and Not Null
@@ -30,17 +31,18 @@ public class DoctorModel implements Serializable {
 
 	private List<SpecialityModel> specialities;
 
+	@JsonManagedReference
 	@OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<ScheduleModel> schedules;
 
 	@OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<AppointmentModel> appointments;
 
-	// Constructor
+	/**
+	 * 
+	 */
 	public DoctorModel() {
-
-	}
-
+    }
 	// Getters and Setters Methods
 	public List<AppointmentModel> getAppointments() {
 		return appointments;
@@ -104,6 +106,10 @@ public class DoctorModel implements Serializable {
 
 	public void setSchedules(List<ScheduleModel> schedules) {
 		this.schedules = schedules;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
