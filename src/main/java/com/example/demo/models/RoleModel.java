@@ -2,6 +2,8 @@ package com.example.demo.models;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.*;
+
 import java.util.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class RoleModel implements Serializable {
     @Column(unique = true, nullable = false)
     private Long id;
     @Column(unique = true, nullable = false)
+    @NotBlank(message = "El nombre del rol es obligatorio")
     private String name;
 
     @OneToMany(mappedBy = "role", fetch = FetchType.LAZY,

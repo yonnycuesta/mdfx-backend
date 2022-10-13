@@ -1,12 +1,12 @@
 package com.example.demo.models;
 
 import java.io.Serializable;
-// import java.util.List;
 import javax.persistence.*;
+
 @Entity
 @Table(name = "users")
 
-public class UserModel implements Serializable{
+public class UserModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id // Primary Key
@@ -21,7 +21,7 @@ public class UserModel implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "role_id", nullable = false, referencedColumnName = "id")
     private RoleModel role;
-
+    
     // Constructor
     public UserModel() {
     }
@@ -51,6 +51,7 @@ public class UserModel implements Serializable{
     public String getPassword() {
         return password;
     }
+   
     public void setPassword(String password) {
         this.password = password;
     }

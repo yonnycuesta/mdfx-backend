@@ -1,10 +1,8 @@
 package com.example.demo.controllers;
 
 import org.springframework.web.bind.annotation.*;
-
 import com.example.demo.models.SpecialityModel;
 import com.example.demo.services.SpecialityService;
-
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +14,7 @@ public class SpecialityController {
     
     @Autowired
     private SpecialityService specialityService; // Inject SpecialityService
+  
     // Get all specialities
     @GetMapping
     public ArrayList<SpecialityModel> getSpecialities() {
